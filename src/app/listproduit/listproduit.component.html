@@ -1,0 +1,43 @@
+<div class="container">
+<div class="card">
+    <div class="card-header">listproduit</div>
+    <div class="card-body">
+
+        <table class="table table-striped" *ngIf="products!=null ;else vide">
+            <thead>
+                <input class="form-control mr-sm-2" type="search" [(ngModel)]="VFiltre" >
+                <tr>
+                    <th>ID</th>  
+                    <th>Nom</th>              
+                    <th>Prix</th>  
+                    <th>Quantité</th>  
+                    <th><button (click)="masquer()" class="btn btn-info">{{af}}</button></th>  
+                </tr>
+            </thead>
+           <tbody>
+           <tr *ngFor="let p of productF" >
+                <td  [ngStyle]="{'color': getColor(p.quantite)}" >{{p.id}}</td> 
+                <td  [ngStyle]="{'color': getColor(p.quantite)}" >{{p.nom}}</td> 
+                <td  [ngStyle]="{'color': getColor(p.quantite)}" >{{p.prix}}</td> 
+                <td  [ngStyle]="{'color': getColor(p.quantite)}" >{{p.quantite}}</td> 
+                <td><img *ngIf="af=='masquer'" [src]="p.urlimage" width='100px' /></td>
+                <td><button (click)="supprimer(p)" class="btn btn-danger"  ><i class="bi bi-trash"></i>
+                </button></td>
+            </tr> 
+           </tbody> 
+        </table>
+        <ng-template #vide><h2>le tableau est vide</h2></ng-template>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
